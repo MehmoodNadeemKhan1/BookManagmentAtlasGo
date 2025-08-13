@@ -25,6 +25,8 @@ put your database configuration
 
 3. make loader name folder make main.go file in and put the code 
 
+4 run this command
+
 
 **Atlas migration commands**
 atlas migrate diff add_products_table --env gorm
