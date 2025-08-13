@@ -4,7 +4,6 @@ import (
 	"fmt"
 
 	"github.com/Mehmoodkhan1/BookStore/helper"
-	"github.com/Mehmoodkhan1/BookStore/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -17,15 +16,15 @@ func ConnectionDB(config Config) *gorm.DB {
 	fmt.Println("Database connected successfully")
 
 	// AutoMigrate
-	db.AutoMigrate(
-		models.Customer{},
-		models.CustomerAddress{},
-		models.CustomerPhoneNumber{},
-		models.Authors{},
-		models.Books{},
-		models.BookAuthors{},
-		models.Orders{},
-		models.OrderItem{},
-	)
+	// db.AutoMigrate(
+	// 	models.Customer{},
+	// 	models.CustomerAddress{},
+	// 	models.CustomerPhoneNumber{},
+	// 	models.Authors{},
+	// 	models.Books{},
+	// 	models.BookAuthors{},
+	// 	models.Orders{},
+	// 	models.OrderItem{},
+	// )
 	return db
 }
