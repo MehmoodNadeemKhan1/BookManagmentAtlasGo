@@ -1,0 +1,70 @@
+erDiagram
+
+  %% ENTITIES
+
+  Books {
+    string ISBN
+    string BookTitle
+    float Price
+    int AuthorId
+  }
+
+  Authors {
+    int AuthorId
+    string Name
+    string Email
+    string Bio
+  }
+
+  BookAuthor {
+    int BookAuthorId
+    string ISBN
+    int AuthorId
+  }
+
+  Customers {
+    int CustomerId
+    string Name
+    string Email
+  }
+
+  PhoneNumbers {
+    int PhoneNumberId
+    int CustomerId
+    string PhoneNumber
+  }
+
+  Addresses {
+    int AddressId
+    int CustomerId
+  }
+
+  Orders {
+    int OrderId
+    int CustomerId
+    string PaymentMethod
+    date Order_Date
+  }
+
+  OrderItem {
+    int OrderItemID
+    int OrderId
+    string ISBN
+    int Quantity
+    float PriceAtOrderTime
+  }
+
+  %% RELATIONSHIPS
+
+  Customers ||--o{ PhoneNumbers : has
+  Customers ||--o{ Addresses : has
+  Customers ||--o{ Orders : has
+
+  Orders ||--|{ OrderItem : has
+  OrderItem ||--o{ Books : has
+
+  Books ||--o{ BookAuthor : has
+  Authors ||--o{ BookAuthor : has
+
+  BookAuthor }o--|| Books : connects
+  BookAuthor }o--|| Authors : connects
